@@ -6,18 +6,21 @@ begin
 	number := 0;
 	count := 1;
 	writeln('Введите число:');
+	{$I-}
 	readln(number);
-	
-	if (number < 0) then
+	{$I+}
+
+	if (ioresult <> 0) or (number < 0) then
 	begin
-		writeln('Отрицательное число');
+		writeln('Неверный ввод');
 		exit;
-	end
-	else if (number = 0) then
-		begin
-			writeln('Результат: 0');
-			exit;
-		end;
+	end;
+	
+	if (number = 0) then
+	begin
+		writeln('Результат: 0');
+		exit;
+	end;
 	
 	while(number > 0) do
 	begin
