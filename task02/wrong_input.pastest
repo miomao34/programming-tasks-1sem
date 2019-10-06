@@ -1,6 +1,10 @@
--5
-Неверный ввод
-test
-Неверный ввод
-25.15
-Неверный ввод
+45 hello
+wrong input
+there 0.01
+wrong input
+45 -0.2
+wrong input
+45 0.00000000001
+wrong input
+45 0
+wrong input
