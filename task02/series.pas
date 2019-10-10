@@ -7,9 +7,9 @@ uses
 	SysUtils,
 	Math;
 var
-	real_result : double = 1.0;
+	newresult : double = 1.0;
 	result : double = 1.0;
-	n : integer = 1;
+	n : int64 = 1;
 	x : double = 0.0;
 	error : double = 1.1;
 begin
@@ -18,22 +18,22 @@ begin
 	readln(x, error);
 	{$I+}
 
-	if (ioresult <> 0) or (error < 0.0000000001)then
+	if (ioresult <> 0) or (error < 0.0000000001) then
 	begin
 		writeln('wrong input');
 		exit;
 	end;
-
-	real_result := cos(x*pi/180);
-
+	
+	// writeln(cos(x*pi/180):0:20);
 	while true do
 	begin
-		result := result * (1 - ( 4*x*x/((2*n-1)*(2*n-1)*180*180) ) );
-		if ((result - real_result) < error) and ((real_result - result) < error) then
+		newresult := result * (1 - ( 4*x*x/((2*n-1)*(2*n-1)*180*180) ) );
+		if ((newresult - result) < (error / n)) and ((result - newresult) < (error / n)) then
 		begin
-			writeln(result:0:20);
+			writeln(newresult:0:20);
 			break;
 		end;
+		result := newresult;
 		n := n + 1;
 	end;
 end.

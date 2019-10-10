@@ -8,7 +8,7 @@ fi
 
 for file in $(ls *.pastest)
 do
-	echo "For tests in ${file}:"
+	echo -e "\nFor tests in ${file}:"
 	while read -r line
 	do
 		read -r result

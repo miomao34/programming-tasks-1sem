@@ -1,5 +1,5 @@
 all:
-	rm series.out
+	rm series.out || true
 	fpc -oseries.out series.pas
 	rm series.o
 	
