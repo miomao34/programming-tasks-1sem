@@ -15,9 +15,9 @@ do
 		got=$(echo $line | ./$1 | tail -n 1)
 		if [ "$got" == "$result" ]
 		then
-			echo -e "${GREEN}OK${NC}: \"${YELLOW}${line}${NC}\"\t> \"${CYAN}${got}${NC}\""
+			printf "${GREEN}OK${NC}: \"${YELLOW}%s${NC}\"\t> \"${CYAN}%s${NC}\"\n" "${line}" "${got}"
 		else
-			echo -e "${RED}ERROR${NC}: \"${YELLOW}${line}${NC}\"\t>\n\tExpected:\n\t\t\"${CYAN}${result}${NC}\"\n\tGot:\n\t\t\"${RED}${got}${NC}\""
+			printf "${RED}ERROR${NC}: \"${YELLOW}%s${NC}\"\t>\n\tExpected:\n\t\t\"${CYAN}%s${NC}\"\n\tGot:\n\t\t\"${RED}%s${NC}\"\n"  "${line}" "${result}" "${got}"
 		fi
 	done < "$file"
 done
