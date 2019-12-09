@@ -1,6 +1,9 @@
 all: build
 	/home/sinclair43/Documents/misc/cool-retro-terminal/Cool_Retro_Term-64e007f-x86_64.AppImage --workdir /home/sinclair43/Documents/fMephi/programming/programming-tasks-1sem/task07 -e ./flights.out
 
+run: build
+	./flights.out
+	
 build:
 	rm flights.out || true
 	fpc -oflights.out flights.pas
