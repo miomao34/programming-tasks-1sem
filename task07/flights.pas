@@ -123,8 +123,9 @@ another_file:
 	
 	if (ioresult <> 0) or (title = '') then
 	begin
-		writeln('file ', title, 'cannot be opened');
-		exit;
+		writeln('file ', title, ' cannot be opened');
+		writeln();
+		goto another_file;
 	end;
 
 	writeln('opened ', title);
